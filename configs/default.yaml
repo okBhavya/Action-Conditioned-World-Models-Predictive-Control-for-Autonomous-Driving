@@ -1,0 +1,52 @@
+# Default full experimental configuration
+seed: 42
+
+data:
+  train_episodes: 120
+  val_episodes: 25
+  max_steps_per_episode: 350
+  policy_mixture:
+    noisy_baseline_ratio: 0.6
+    random_smooth_ratio: 0.2
+    disturbance_recovery_ratio: 0.2
+  output_dir: "data"
+
+model:
+  hidden_dim: 256
+  num_layers: 3
+  activation: "silu"
+  lr: 0.001
+  weight_decay: 0.0001
+  batch_size: 256
+  epochs: 35
+  unroll_steps: 5
+  patience: 7
+  checkpoint_dir: "checkpoints"
+
+mpc:
+  horizon: 10
+  num_samples: 512
+  dt: 0.1
+  target_speed: 10.0  # m/s (~36 km/h)
+  safety_constraints: true
+  cost_weights:
+    w_lat: 3.0
+    w_heading: 6.0
+    w_speed: 1.0
+    w_steer: 0.3
+    w_acc: 0.1
+    w_steer_rate: 0.5
+    w_acc_rate: 0.2
+
+baseline:
+  kp_steer: 0.8
+  kd_steer: 0.2
+  kp_speed: 0.5
+  ki_speed: 0.05
+  target_speed: 10.0
+  lookahead_dist: 5.0
+
+benchmark:
+  episodes_per_suite: 30
+  max_steps: 350
+  results_dir: "results/final"

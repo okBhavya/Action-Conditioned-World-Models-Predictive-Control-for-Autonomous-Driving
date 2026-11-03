@@ -1,0 +1,64 @@
+# Map Suites for Data Collection, Training, and Evaluation
+
+defaults:
+  random_agent_model: false
+  lane_num: 3
+  lane_width: 3.5
+
+train:
+  description: "Training suite: combinations of straights, curves, intersections, ramps (no roundabouts)"
+  layouts:
+    - "S"
+    - "C"
+    - "SC"
+    - "CS"
+    - "X"
+    - "r"
+    - "R"
+  start_seed: 1000
+  num_scenarios: 1000
+  traffic_density: 0.0
+
+val:
+  description: "Validation suite: unseen seeds on training layouts"
+  layouts:
+    - "SC"
+    - "CS"
+    - "X"
+  start_seed: 2000
+  num_scenarios: 100
+  traffic_density: 0.0
+
+test_unseen_seeds:
+  description: "Test Suite 1: Unseen seeds on seen layouts"
+  layouts:
+    - "S"
+    - "C"
+    - "SC"
+    - "CS"
+    - "X"
+  start_seed: 3000
+  num_scenarios: 50
+  traffic_density: 0.0
+
+test_unseen_layouts:
+  description: "Test Suite 2: Unseen road layouts entirely held out from training (roundabout O, T-junction T)"
+  layouts:
+    - "O"
+    - "T"
+    - "CO"
+    - "TO"
+  start_seed: 4000
+  num_scenarios: 50
+  traffic_density: 0.0
+
+test_traffic:
+  description: "Test Suite 3: Low-density dynamic traffic suite for collision avoidance and safety evaluation"
+  layouts:
+    - "SC"
+    - "CS"
+    - "X"
+  start_seed: 5000
+  num_scenarios: 50
+  traffic_density: 0.08
+  accident_prob: 0.0
