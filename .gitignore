@@ -34,6 +34,7 @@ data/processed/
 # Checkpoints (except curated final)
 checkpoints/*.pt
 !checkpoints/.gitkeep
+!checkpoints/world_model_onestep.pt
 
 # Results (except curated final)
 results/*/

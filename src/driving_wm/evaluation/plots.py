@@ -17,7 +17,9 @@ def plot_benchmark_bar_charts(
     save_path = Path(save_path)
     save_path.parent.mkdir(parents=True, exist_ok=True)
 
-    controllers = list(summary_data.keys())
+    controllers = [
+        c for c, v in summary_data.items() if c != "paired_comparisons" and isinstance(v, dict)
+    ]
     # Metrics to display: Success Rate, Route Completion, Collision Rate
     suites = ["test_unseen_seeds", "test_unseen_layouts", "test_traffic"]
 
@@ -33,7 +35,11 @@ def plot_benchmark_bar_charts(
         comp_means = []
 
         for c_name in controllers:
-            if suite in summary_data[c_name]:
+            if (
+                suite in summary_data[c_name]
+                and isinstance(summary_data[c_name][suite], dict)
+                and "success_rate" in summary_data[c_name][suite]
+            ):
                 data = summary_data[c_name][suite]
                 names.append(c_name)
                 # Success rate & Wilson CI
