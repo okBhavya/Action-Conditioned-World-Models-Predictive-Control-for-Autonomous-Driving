@@ -1,0 +1,10 @@
+# Pinned versions verified on Windows, Python 3.11, CPU-only
+numpy>=1.24,<3.0
+torch>=2.0
+gymnasium>=0.29
+metadrive-simulator>=0.4,<0.5
+pyyaml>=6.0
+matplotlib>=3.7
+imageio>=2.31
+pytest>=7.0
+ruff>=0.1
