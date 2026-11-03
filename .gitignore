@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+*.egg
+dist/
+build/
+*.so
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Project data (generated, not committed)
+data/*.npz
+data/*.json
+data/raw/
+data/processed/
+
+# Checkpoints (except curated final)
+checkpoints/*.pt
+!checkpoints/.gitkeep
+
+# Results (except curated final)
+results/*/
+!results/.gitkeep
+!results/final/
+
+# Scratch
+.scratch/
+
+# Logs
+*.log
+logs/
+
+# MetaDrive
+metadrive_assets/
