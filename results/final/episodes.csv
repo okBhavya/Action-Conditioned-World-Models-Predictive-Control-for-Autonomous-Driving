@@ -1,0 +1,76 @@
+controller,suite,map,seed,steps,success,arrive_dest,crash,out_of_road,route_completion,mean_speed_mps,rms_lateral_error_m,steering_jerk,min_obstacle_clearance_m,mean_planning_time_ms,termination_reason
+Learned MPC,test_unseen_seeds,S,3000,102,True,True,False,False,0.9568,8.214,0.196,355.2625,-1.000,29.49,arrive_dest
+Learned MPC,test_unseen_seeds,C,3001,146,True,True,False,False,0.9574,8.244,0.375,278.0871,-1.000,75.59,arrive_dest
+Learned MPC,test_unseen_seeds,SC,3002,250,False,False,False,False,0.7742,8.332,0.273,379.8275,-1.000,75.13,max_step
+Learned MPC,test_unseen_seeds,CS,3003,176,False,False,False,True,0.6596,8.723,0.452,328.2555,-1.000,77.53,out_of_road
+Learned MPC,test_unseen_seeds,X,3004,149,True,True,False,False,0.9620,7.947,0.351,305.7927,-1.000,83.27,arrive_dest
+Learned MPC,test_unseen_layouts,O,4000,95,False,False,False,True,0.3371,7.533,0.537,853.5657,-1.000,80.63,out_of_road
+Learned MPC,test_unseen_layouts,O,4004,220,True,True,False,False,0.9794,8.548,0.622,559.6074,-1.000,90.91,arrive_dest
+Learned MPC,test_unseen_layouts,T,4001,135,True,True,False,False,0.9618,8.356,0.201,272.0799,-1.000,34.09,arrive_dest
+Learned MPC,test_unseen_layouts,CO,4002,91,False,False,False,True,0.1785,7.911,0.267,291.5083,-1.000,78.13,out_of_road
+Learned MPC,test_unseen_layouts,TO,4003,167,False,False,True,True,0.4621,8.180,0.517,246.2282,-1.000,63.96,crash
+Learned MPC,test_traffic,SC,5000,213,False,False,True,False,0.9473,8.405,0.412,355.1620,4.864,50.35,crash
+Learned MPC,test_traffic,SC,5003,208,False,False,True,False,0.7781,8.643,0.378,1557.3789,3.940,70.65,crash
+Learned MPC,test_traffic,CS,5001,250,False,False,False,False,0.8366,8.728,0.366,346.6845,6.736,69.07,max_step
+Learned MPC,test_traffic,CS,5004,94,False,False,False,True,0.3665,8.153,0.331,298.2285,11.244,62.13,out_of_road
+Learned MPC,test_traffic,X,5002,135,True,True,False,False,0.9649,8.398,0.260,283.0100,3.601,34.77,arrive_dest
+Stanley PID,test_unseen_seeds,S,3000,97,True,True,False,False,0.9563,8.624,0.000,0.0000,-1.000,0.00,arrive_dest
+Stanley PID,test_unseen_seeds,C,3001,134,True,True,False,False,0.9606,9.047,0.110,0.7928,-1.000,0.00,arrive_dest
+Stanley PID,test_unseen_seeds,SC,3002,250,False,False,False,False,0.8927,9.656,0.083,0.1256,-1.000,0.00,max_step
+Stanley PID,test_unseen_seeds,CS,3003,235,True,True,False,False,0.9782,9.584,0.086,0.3571,-1.000,0.00,arrive_dest
+Stanley PID,test_unseen_seeds,X,3004,135,True,True,False,False,0.9594,8.821,0.156,0.7776,-1.000,0.00,arrive_dest
+Stanley PID,test_unseen_layouts,O,4000,250,False,False,False,False,0.8803,8.795,0.435,5.7201,-1.000,0.00,max_step
+Stanley PID,test_unseen_layouts,O,4004,212,True,True,False,False,0.9771,8.639,0.271,3.6170,-1.000,0.00,arrive_dest
+Stanley PID,test_unseen_layouts,T,4001,125,True,True,False,False,0.9612,9.003,0.000,0.0000,-1.000,0.00,arrive_dest
+Stanley PID,test_unseen_layouts,CO,4002,250,False,False,False,False,0.5717,9.330,0.157,0.5348,-1.000,0.00,max_step
+Stanley PID,test_unseen_layouts,TO,4003,250,False,False,False,False,0.6943,8.997,0.242,2.0238,-1.000,0.00,max_step
+Stanley PID,test_traffic,SC,5000,195,True,True,False,False,0.9766,9.263,0.109,0.5802,3.500,0.00,arrive_dest
+Stanley PID,test_traffic,SC,5003,237,True,True,False,False,0.9789,9.560,0.092,0.3386,3.553,0.00,arrive_dest
+Stanley PID,test_traffic,CS,5001,250,False,False,False,False,0.9192,9.639,0.078,0.1735,6.279,0.00,max_step
+Stanley PID,test_traffic,CS,5004,226,True,True,False,False,0.9822,9.526,0.100,0.3770,6.653,0.00,arrive_dest
+Stanley PID,test_traffic,X,5002,142,True,True,False,False,0.9678,7.982,0.000,0.0000,3.348,0.00,arrive_dest
+Constant Throttle,test_unseen_seeds,S,3000,118,True,True,False,False,0.9506,7.038,0.000,0.0000,-1.000,0.00,arrive_dest
+Constant Throttle,test_unseen_seeds,C,3001,91,False,False,False,True,0.4373,5.462,0.028,0.0000,-1.000,0.00,out_of_road
+Constant Throttle,test_unseen_seeds,SC,3002,138,False,False,False,True,0.4380,8.375,0.026,0.0000,-1.000,0.00,out_of_road
+Constant Throttle,test_unseen_seeds,CS,3003,94,False,False,False,True,0.2444,5.390,0.036,0.0000,-1.000,0.00,out_of_road
+Constant Throttle,test_unseen_seeds,X,3004,139,False,False,False,True,0.6405,8.455,0.225,0.0000,-1.000,0.00,out_of_road
+Constant Throttle,test_unseen_layouts,O,4000,101,False,False,False,True,0.2776,5.857,0.337,0.0000,-1.000,0.00,out_of_road
+Constant Throttle,test_unseen_layouts,O,4004,98,False,False,False,True,0.3287,5.890,0.283,0.0000,-1.000,0.00,out_of_road
+Constant Throttle,test_unseen_layouts,T,4001,139,True,True,False,False,0.9648,8.120,0.000,0.0000,-1.000,0.00,arrive_dest
+Constant Throttle,test_unseen_layouts,CO,4002,114,False,False,False,True,0.1737,6.330,0.416,0.0000,-1.000,0.00,out_of_road
+Constant Throttle,test_unseen_layouts,TO,4003,139,False,False,False,True,0.2493,8.498,0.182,0.0000,-1.000,0.00,out_of_road
+Constant Throttle,test_traffic,SC,5000,152,False,False,True,True,0.7431,8.974,0.191,0.0000,3.512,0.00,crash
+Constant Throttle,test_traffic,SC,5003,141,False,False,True,False,0.5004,7.819,0.000,0.0000,5.547,0.00,crash
+Constant Throttle,test_traffic,CS,5001,94,False,False,False,True,0.2141,5.545,0.052,0.0000,18.226,0.00,out_of_road
+Constant Throttle,test_traffic,CS,5004,105,False,False,True,True,0.3108,6.405,0.384,0.0000,25.844,0.00,crash
+Constant Throttle,test_traffic,X,5002,136,True,True,False,False,0.9663,8.312,0.000,0.0000,5.935,0.00,arrive_dest
+Zero Action,test_unseen_seeds,S,3000,250,False,False,False,False,0.0539,0.004,0.000,0.0000,-1.000,0.00,max_step
+Zero Action,test_unseen_seeds,C,3001,250,False,False,False,False,0.0406,0.004,0.000,0.0000,-1.000,0.00,max_step
+Zero Action,test_unseen_seeds,SC,3002,250,False,False,False,False,0.0181,0.004,0.000,0.0000,-1.000,0.00,max_step
+Zero Action,test_unseen_seeds,CS,3003,250,False,False,False,False,0.0223,0.004,0.000,0.0000,-1.000,0.00,max_step
+Zero Action,test_unseen_seeds,X,3004,250,False,False,False,False,0.0427,0.004,0.000,0.0000,-1.000,0.00,max_step
+Zero Action,test_unseen_layouts,O,4000,250,False,False,False,False,0.0209,0.004,0.000,0.0000,-1.000,0.00,max_step
+Zero Action,test_unseen_layouts,O,4004,250,False,False,False,False,0.0261,0.004,0.000,0.0000,-1.000,0.00,max_step
+Zero Action,test_unseen_layouts,T,4001,250,False,False,False,False,0.0409,0.004,0.000,0.0000,-1.000,0.00,max_step
+Zero Action,test_unseen_layouts,CO,4002,250,False,False,False,False,0.0111,0.004,0.000,0.0000,-1.000,0.00,max_step
+Zero Action,test_unseen_layouts,TO,4003,250,False,False,False,False,0.0167,0.004,0.000,0.0000,-1.000,0.00,max_step
+Zero Action,test_traffic,SC,5000,250,False,False,False,False,0.0268,0.004,0.000,0.0000,45.105,0.00,max_step
+Zero Action,test_traffic,SC,5003,250,False,False,False,False,0.0217,0.004,0.000,0.0000,45.105,0.00,max_step
+Zero Action,test_traffic,CS,5001,250,False,False,False,False,0.0187,0.004,0.000,0.0000,55.482,0.00,max_step
+Zero Action,test_traffic,CS,5004,250,False,False,False,False,0.0223,0.004,0.000,0.0000,45.528,0.00,max_step
+Zero Action,test_traffic,X,5002,250,False,False,False,False,0.0409,0.004,0.000,0.0000,74.647,0.00,max_step
+Random,test_unseen_seeds,S,3000,250,False,False,False,False,0.0861,0.210,0.038,20339.5279,-1.000,0.00,max_step
+Random,test_unseen_seeds,C,3001,250,False,False,False,False,0.0576,0.180,0.139,20774.7474,-1.000,0.00,max_step
+Random,test_unseen_seeds,SC,3002,250,False,False,False,False,0.0282,0.199,0.042,22639.5171,-1.000,0.00,max_step
+Random,test_unseen_seeds,CS,3003,250,False,False,False,False,0.0331,0.185,0.156,19980.3515,-1.000,0.00,max_step
+Random,test_unseen_seeds,X,3004,250,False,False,False,False,0.0646,0.198,0.042,20740.6589,-1.000,0.00,max_step
+Random,test_unseen_layouts,O,4000,250,False,False,False,False,0.0345,0.214,0.045,16689.0820,-1.000,0.00,max_step
+Random,test_unseen_layouts,O,4004,250,False,False,False,False,0.0397,0.198,0.025,21587.3590,-1.000,0.00,max_step
+Random,test_unseen_layouts,T,4001,250,False,False,False,False,0.0649,0.205,0.241,18300.9854,-1.000,0.00,max_step
+Random,test_unseen_layouts,CO,4002,250,False,False,False,False,0.0167,0.176,0.029,16941.1111,-1.000,0.00,max_step
+Random,test_unseen_layouts,TO,4003,250,False,False,False,False,0.0251,0.203,0.142,18991.2099,-1.000,0.00,max_step
+Random,test_traffic,SC,5000,250,False,False,False,False,0.0365,0.178,0.084,19272.4696,43.290,0.00,max_step
+Random,test_traffic,SC,5003,250,False,False,False,False,0.0317,0.169,0.026,21867.7812,42.872,0.00,max_step
+Random,test_traffic,CS,5001,250,False,False,False,False,0.0273,0.195,0.070,21158.3365,53.286,0.00,max_step
+Random,test_traffic,CS,5004,250,False,False,False,False,0.0401,0.250,0.062,18079.9255,41.594,0.00,max_step
+Random,test_traffic,X,5002,250,False,False,False,False,0.0567,0.186,0.030,19074.1272,72.845,0.00,max_step

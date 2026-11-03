@@ -1,0 +1,26 @@
+[
+  {
+    "horizon": 5,
+    "samples": 128,
+    "time_ms": 13.297112000000197,
+    "completion": 0.46042419647173516
+  },
+  {
+    "horizon": 5,
+    "samples": 256,
+    "time_ms": 25.673169999936363,
+    "completion": 0.4605678966827846
+  },
+  {
+    "horizon": 10,
+    "samples": 128,
+    "time_ms": 32.47041199996602,
+    "completion": 0.4536978802681498
+  },
+  {
+    "horizon": 10,
+    "samples": 256,
+    "time_ms": 53.041462999244686,
+    "completion": 0.4502599243641955
+  }
+]

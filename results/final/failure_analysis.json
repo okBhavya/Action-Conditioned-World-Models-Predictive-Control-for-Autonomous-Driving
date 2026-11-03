@@ -1,0 +1,62 @@
+[
+  {
+    "case_id": 1,
+    "suite": "test_unseen_seeds",
+    "layout": "SC",
+    "seed": 3002,
+    "termination_reason": "max_step",
+    "route_completion": 0.7742,
+    "mean_speed_mps": 8.332,
+    "category": "Infeasible Safety Fallback Timeout",
+    "explanation": "Constraint evaluator detected no feasible candidates, triggering safety braking and subsequent timeout.",
+    "gif_path": "docs\\img\\failure_case_1.gif"
+  },
+  {
+    "case_id": 2,
+    "suite": "test_unseen_seeds",
+    "layout": "CS",
+    "seed": 3003,
+    "termination_reason": "out_of_road",
+    "route_completion": 0.6596,
+    "mean_speed_mps": 8.723,
+    "category": "Infeasible Safety Fallback Timeout",
+    "explanation": "Constraint evaluator detected no feasible candidates, triggering safety braking and subsequent timeout.",
+    "gif_path": "docs\\img\\failure_case_2.gif"
+  },
+  {
+    "case_id": 3,
+    "suite": "test_unseen_layouts",
+    "layout": "O",
+    "seed": 4000,
+    "termination_reason": "out_of_road",
+    "route_completion": 0.3371,
+    "mean_speed_mps": 7.533,
+    "category": "Held-Out Topology Curvature Shift",
+    "explanation": "Sharp continuous curvature on unseen roundabout/T-junction exceeded the 1.0s planning horizon lookahead.",
+    "gif_path": "docs\\img\\failure_case_3.gif"
+  },
+  {
+    "case_id": 4,
+    "suite": "test_unseen_layouts",
+    "layout": "CO",
+    "seed": 4002,
+    "termination_reason": "out_of_road",
+    "route_completion": 0.1785,
+    "mean_speed_mps": 7.911,
+    "category": "Infeasible Safety Fallback Timeout",
+    "explanation": "Constraint evaluator detected no feasible candidates, triggering safety braking and subsequent timeout.",
+    "gif_path": "docs\\img\\failure_case_4.gif"
+  },
+  {
+    "case_id": 5,
+    "suite": "test_unseen_layouts",
+    "layout": "TO",
+    "seed": 4003,
+    "termination_reason": "crash",
+    "route_completion": 0.4621,
+    "mean_speed_mps": 8.18,
+    "category": "Dynamic Traffic Obstacle Collision",
+    "explanation": "Vehicle collided with adjacent moving traffic participant or lead vehicle under dynamic merge.",
+    "gif_path": "docs\\img\\failure_case_5.gif"
+  }
+]
