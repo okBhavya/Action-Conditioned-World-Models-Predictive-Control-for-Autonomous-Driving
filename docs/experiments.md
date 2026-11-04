@@ -38,12 +38,12 @@ Pure random exploration in autonomous driving results in immediate curb collisio
 ### Ablation A: Impact of Explicit Safety Constraints
 Evaluated on `test_unseen_seeds` and `test_traffic` (`results/final/ablation_a/summary.json`):
 
-| Controller Variant | Unseen Seeds Success (%) | Unseen Seeds Completion (%) | Traffic Collision Rate (%) | Traffic Out-of-Road Rate (%) |
-|---|---|---|---|---|
-| **MPC + Safety Constraints** | **40.0%** | **76.9%** | **0.0%** | 80.0% |
-| **MPC (Unconstrained Cost Only)** | 40.0% | 80.3% | **20.0%** | 80.0% |
+| Controller Variant | Unseen Seeds Success (%) | Unseen Seeds Completion (%) | Traffic Collision Rate (%) | Traffic Out-of-Road Rate (%) | Traffic Route Completion (%) |
+|---|---|---|---|---|---|
+| **MPC + Safety Constraints** | **40.0%** | **76.9%** | **20.0%** | **20.0%** | **63.2%** |
+| **MPC (Unconstrained Cost Only)** | 40.0% | 80.3% | 20.0% | 40.0% | 58.5% |
 
-*Key finding*: Disabling safety constraints doubles vehicle collision rate in traffic (from 0.0% to 20.0%), confirming that unconstrained cost optimization gambles on narrow clearances that physical collision margins forbid.
+*Key finding*: Incorporating explicit road boundary and collision constraints halves the out-of-road rate under dynamic traffic (from 40.0% to 20.0%) and improves route completion from 58.5% to 63.2%, demonstrating that cost-only optimization gambles on narrow clearances that physical collision margins forbid.
 
 ### Ablation B: Horizon ($H$) vs. Candidate Count ($N$) vs. Planning Latency
 Evaluated on procedural curve map `SC` (`results/final/ablation_b_grid.json`):
@@ -63,8 +63,8 @@ Evaluated on procedural curve map `SC` (`results/final/ablation_b_grid.json`):
 
 Detailed in `results/final/failure_analysis.json`:
 
-1. **Case 1 (Map `SC`, Seed 3002)**: Infeasible safety fallback timeout. Vehicle completed 77.4% of route at $8.33\text{ m/s}$, before braking into safety fallback due to tight road boundary clearance. [Animation: `docs/img/failure_case_1.gif` (0.72 MB)]
-2. **Case 2 (Map `CS`, Seed 3003)**: Out-of-road on curve transition. Lateral drift reached $2.1\text{ m}$ on continuous curve entry, clipping the outside lane curb at step 64. [Animation: `docs/img/failure_case_2.gif` (0.28 MB)]
-3. **Case 3 (Map `O`, Seed 4000)**: Held-out roundabout geometry. Unseen continuous curve required high persistent steering beyond the 1.0s planning horizon lookahead. [Animation: `docs/img/failure_case_3.gif` (1.67 MB)]
-4. **Case 4 (Map `CO`, Seed 4002)**: Curve-to-roundabout transition. Vehicle exited roadway at step 59 due to sudden inflection point in reference lane tangent. [Animation: `docs/img/failure_case_4.gif` (0.22 MB)]
-5. **Case 5 (Map `TO`, Seed 4003)**: Dynamic collision at T-junction intersection. Lead vehicle decelerated abruptly across intersection corridor. [Animation: `docs/img/failure_case_5.gif` (1.13 MB)]
+1. **Case 1 (Map `SC`, Seed 3002)**: Infeasible safety fallback timeout. Vehicle completed 55.5% of route at $8.61\text{ m/s}$ before braking into safety fallback due to tight road boundary clearance. [Animation: `docs/img/failure_case_1.gif` (0.72 MB)]
+2. **Case 2 (Map `O`, Seed 4000)**: Held-out roundabout geometry collision. Unseen continuous curve required persistent steering beyond the 1.0s lookahead, resulting in collision at 30.7% completion. [Animation: `docs/img/failure_case_2.gif` (0.63 MB)]
+3. **Case 3 (Map `CO`, Seed 4002)**: Curve-to-roundabout transition exit. Sudden inflection point in reference lane tangent caused boundary exit at 18.1% completion. [Animation: `docs/img/failure_case_3.gif` (0.61 MB)]
+4. **Case 4 (Map `TO`, Seed 4003)**: Held-out T-junction collision. Obstacle interaction across intersection led to collision at 47.2% completion. [Animation: `docs/img/failure_case_4.gif` (1.15 MB)]
+5. **Case 5 (Map `SC`, Seed 5003)**: Traffic clearance horizon timeout. Vehicle safely navigated dense traffic reaching 93.7% completion before the maximum step limit elapsed under conservative safety spacing. [Animation: `docs/img/failure_case_5.gif` (0.83 MB)]

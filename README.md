@@ -12,11 +12,11 @@ The table below summarizes closed-loop tracking results across three held-out be
 
 | Controller | Unseen Seeds Success (%) | Unseen Seeds Route Completion (%) | Unseen Layouts Success (%) | Unseen Layouts Route Completion (%) | Traffic Collision Rate (%) | Mean Planning Latency (ms/step) |
 |---|---|---|---|---|---|---|
-| **Learned MPC** | **60.0%** [23.1, 88.2] | **86.2%** [74.3, 95.9] | **40.0%** [11.8, 76.9] | **58.4%** [39.1, 74.8] | **0.0%** [0.0, 43.4] | **68.2 ms** (CPU) |
-| **Stanley PID** | **80.0%** [37.6, 96.4] | **94.9%** [91.9, 97.0] | **40.0%** [11.8, 76.9] | **81.7%** [71.2, 90.4] | 20.0% [3.6, 62.4] | < 1 ms |
-| **Constant Throttle** | 20.0% [3.6, 62.4] | 42.4% [26.1, 57.8] | 20.0% [3.6, 62.4] | 39.9% [23.5, 55.4] | 40.0% [11.8, 76.9] | < 1 ms |
-| **Zero Action** | 0.0% [0.0, 43.4] | 0.0% [0.0, 0.0] | 0.0% [0.0, 43.4] | 0.0% [0.0, 0.0] | 0.0% [0.0, 43.4] | < 1 ms |
-| **Random** | 0.0% [0.0, 43.4] | 5.4% [3.6, 7.2] | 0.0% [0.0, 43.4] | 3.6% [2.1, 5.0] | 0.0% [0.0, 43.4] | < 1 ms |
+| **Learned MPC** | **80.0%** [37.6, 96.4] | **88.1%** [71.7, 97.0] | **40.0%** [11.8, 76.9] | **58.0%** [28.9, 87.0] | **0.0%** [0.0, 43.4] | **56.0 ms** (CPU) |
+| **Stanley PID** | 20.0% [3.6, 62.4] | 55.8% [37.4, 75.9] | **40.0%** [11.8, 76.9] | **62.5%** [36.2, 88.7] | **0.0%** [0.0, 43.4] | < 1 ms |
+| **Constant Throttle** | 20.0% [3.6, 62.4] | 54.2% [36.0, 74.7] | 20.0% [3.6, 62.4] | 39.9% [21.9, 69.5] | 60.0% [23.1, 88.2] | < 1 ms |
+| **Zero Action** | 0.0% [0.0, 43.4] | 3.6% [2.4, 4.7] | 0.0% [0.0, 43.4] | 2.3% [1.5, 3.3] | 0.0% [0.0, 43.4] | < 1 ms |
+| **Random** | 0.0% [0.0, 43.4] | 5.4% [3.6, 7.2] | 0.0% [0.0, 43.4] | 3.6% [2.3, 5.2] | 0.0% [0.0, 43.4] | < 1 ms |
 
 ![Benchmark Comparison](results/final/benchmark_comparison.png)
 
@@ -132,8 +132,8 @@ Evaluated in dynamic traffic (`results/final/ablation_a_safety.png`):
 
 ![Ablation A: Safety Constraints](results/final/ablation_a_safety.png)
 
-- With safety constraints enabled, the vehicle achieved **0.0% collision rate** on the traffic evaluation suite.
-- When safety constraints were disabled (cost-only optimization), the collision rate increased to **20.0%**. Cost terms alone penalize proximity but gamble on narrow clearances that physical collision margins forbid.
+- With safety constraints enabled, the vehicle halves its out-of-road rate in traffic (**20.0%** vs **40.0%**) and increases route completion from **58.5%** to **63.2%**.
+- Explicit boundary and obstacle constraints prune infeasible action candidates that would otherwise gamble on razor-thin road boundary margins.
 
 ### Ablation B: Horizon and Candidate Count Trade-off
 Evaluated on procedural curve map `SC` (`results/final/ablation_b_tradeoff.png`):
@@ -150,11 +150,11 @@ Evaluated on procedural curve map `SC` (`results/final/ablation_b_tradeoff.png`)
 
 We examined 5 failed MPC episodes (`results/final/failure_analysis.json`) to classify root causes:
 
-1. **Infeasible Safety Fallback Timeout (Map `SC`, Seed 3002)**: Vehicle completed 77.4% of route at $8.33\text{ m/s}$ before braking into a safety stop when road boundary clearance dropped below $0.5\text{ m}$. [Animation: [failure_case_1.gif](docs/img/failure_case_1.gif) (0.72 MB)]
-2. **Curve Lateral Drift (Map `CS`, Seed 3003)**: Lateral offset reached $2.1\text{ m}$ on curve transition, clipping the outside curb at step 64. [Animation: [failure_case_2.gif](docs/img/failure_case_2.gif) (0.28 MB)]
-3. **Held-Out Roundabout Geometry (Map `O`, Seed 4000)**: Sharp, continuous circular curvature on an unseen roundabout exceeded the 1.0s lookahead capability under random shooting. [Animation: [failure_case_3.gif](docs/img/failure_case_3.gif) (1.67 MB)]
-4. **Inflection Point Boundary Exit (Map `CO`, Seed 4002)**: Tangent discontinuity at curve-to-roundabout transition caused transient heading error and curb exit. [Animation: [failure_case_4.gif](docs/img/failure_case_4.gif) (0.22 MB)]
-5. **Dynamic Traffic Cut-In (Map `TO`, Seed 4003)**: Moving lead vehicle decelerated across intersection corridor, causing an unavoidable collision when braking distance was insufficient. [Animation: [failure_case_5.gif](docs/img/failure_case_5.gif) (1.13 MB)]
+1. **Infeasible Safety Fallback Timeout (Map `SC`, Seed 3002)**: Vehicle completed 55.5% of route at $8.61\text{ m/s}$ before braking into a safety stop when road boundary clearance dropped below $0.5\text{ m}$. [Animation: [failure_case_1.gif](docs/img/failure_case_1.gif) (0.72 MB)]
+2. **Held-Out Roundabout Geometry (Map `O`, Seed 4000)**: Sharp continuous curvature on unseen roundabout exceeded the 1.0s lookahead, leading to collision at 30.7% route completion. [Animation: [failure_case_2.gif](docs/img/failure_case_2.gif) (0.63 MB)]
+3. **Inflection Point Boundary Exit (Map `CO`, Seed 4002)**: Sudden curvature inflection on curve-to-roundabout transition led to boundary violation at 18.1% completion. [Animation: [failure_case_3.gif](docs/img/failure_case_3.gif) (0.61 MB)]
+4. **Held-Out T-Junction Merge (Map `TO`, Seed 4003)**: Unseen T-junction intersection geometry caused trajectory collision at 47.2% completion. [Animation: [failure_case_4.gif](docs/img/failure_case_4.gif) (1.15 MB)]
+5. **Traffic Clearance Horizon Timeout (Map `SC`, Seed 5003)**: Vehicle safely negotiated dense traffic reaching 93.7% completion before episode step limit elapsed under conservative safety spacing. [Animation: [failure_case_5.gif](docs/img/failure_case_5.gif) (0.83 MB)]
 
 ---
 

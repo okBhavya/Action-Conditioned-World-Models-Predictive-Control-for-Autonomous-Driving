@@ -55,11 +55,11 @@ The controllers were benchmarked across identical seeds on three suites (`result
 
 | Controller | Unseen Seeds Success (%) | Unseen Seeds Completion (%) | Unseen Layouts Success (%) | Unseen Layouts Completion (%) | Traffic Suite Success (%) | Traffic Suite Completion (%) | Mean Planning Time ($ms$) |
 |---|---|---|---|---|---|---|---|
-| **Learned MPC** | **60.0%** [23.1, 88.2] | **86.2%** [74.3, 95.9] | **40.0%** [11.8, 76.9] | **58.4%** [39.1, 74.8] | **20.0%** [3.6, 62.4] | **63.7%** [42.1, 81.3] | 68.2 ms |
-| **Stanley PID** | **80.0%** [37.6, 96.4] | **94.9%** [91.9, 97.0] | **40.0%** [11.8, 76.9] | **81.7%** [71.2, 90.4] | **60.0%** [23.1, 88.2] | **87.9%** [78.6, 95.2] | < 1 ms |
-| **Constant Throttle** | 20.0% [3.6, 62.4] | 42.4% [26.1, 57.8] | 20.0% [3.6, 62.4] | 39.9% [23.5, 55.4] | 0.0% [0.0, 43.4] | 28.1% [14.6, 41.2] | < 1 ms |
-| **Zero Action** | 0.0% [0.0, 43.4] | 0.0% [0.0, 0.0] | 0.0% [0.0, 43.4] | 0.0% [0.0, 0.0] | 0.0% [0.0, 43.4] | 0.0% [0.0, 0.0] | < 1 ms |
-| **Random** | 0.0% [0.0, 43.4] | 5.4% [3.6, 7.2] | 0.0% [0.0, 43.4] | 3.6% [2.1, 5.0] | 0.0% [0.0, 43.4] | 3.8% [2.2, 5.3] | < 1 ms |
+| **Learned MPC** | **80.0%** [37.6, 96.4] | **88.1%** [71.7, 97.0] | **40.0%** [11.8, 76.9] | **58.0%** [28.9, 87.0] | **40.0%** [11.8, 76.9] | **63.4%** [28.9, 96.1] | 56.0 ms |
+| **Stanley PID** | 20.0% [3.6, 62.4] | 55.8% [37.4, 75.9] | **40.0%** [11.8, 76.9] | **62.5%** [36.2, 88.7] | **80.0%** [37.6, 96.4] | **82.6%** [52.7, 98.0] | < 1 ms |
+| **Constant Throttle** | 20.0% [3.6, 62.4] | 54.2% [36.0, 74.7] | 20.0% [3.6, 62.4] | 39.9% [21.9, 69.5] | 20.0% [3.6, 62.4] | 54.7% [31.0, 78.8] | < 1 ms |
+| **Zero Action** | 0.0% [0.0, 43.4] | 3.6% [2.4, 4.7] | 0.0% [0.0, 43.4] | 2.3% [1.5, 3.3] | 0.0% [0.0, 43.4] | 2.6% [2.1, 3.3] | < 1 ms |
+| **Random** | 0.0% [0.0, 43.4] | 5.4% [3.6, 7.2] | 0.0% [0.0, 43.4] | 3.6% [2.3, 5.2] | 0.0% [0.0, 43.4] | 3.8% [3.1, 4.8] | < 1 ms |
 
 ### Regimes of Superiority and Parity
 1. **Floor Policy Differentiation**: Zero Action and Random fail completely (0.0% success, <6% completion), proving the benchmark rigorously separates functioning tracking systems from trivial policies.
@@ -80,6 +80,6 @@ While MetaDrive provides physics with Panda3D and Open Dynamics Engine (ODE), ph
 
 ## 5. Summary and Lessons Learned
 
-1. **Dynamics in the Ego Frame**: Training neural models on local increments $(\Delta x_{ego}, \Delta y_{ego}, \Delta \psi)$ decouples vehicle physics from map geometry, enabling 86.2% completion on unseen procedural tracks.
+1. **Dynamics in the Ego Frame**: Training neural models on local increments $(\Delta x_{ego}, \Delta y_{ego}, \Delta \psi)$ decouples vehicle physics from map geometry, enabling 88.1% completion on unseen procedural tracks.
 2. **Explicit Constraints Prevent Over-Optimism**: Without safety constraints, MPC suffers higher collision rates in traffic by gambling on narrow gaps. Explicit constraint filtering provides a defensive driving boundary.
-3. **Real-Time CPU Execution**: PyTorch vectorized batch rollouts achieve 53–68 ms latency per step on an 18-core CPU, satisfying real-time 10 Hz requirements without dedicated GPU hardware.
+3. **Real-Time CPU Execution**: PyTorch vectorized batch rollouts achieve 56 ms latency per step on an 18-core CPU, satisfying real-time 10 Hz requirements without dedicated GPU hardware.
