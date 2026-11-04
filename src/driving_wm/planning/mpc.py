@@ -10,7 +10,7 @@ import torch
 
 from driving_wm.controllers.pid import BaseController
 from driving_wm.data.dataset import Normalizer
-from driving_wm.data.state import extract_vehicle_dynamic_state
+from driving_wm.data.state import extract_vehicle_dynamic_state, wrap_angle
 from driving_wm.models.dynamics import WorldModel
 from driving_wm.planning.constraints import evaluate_all_constraints
 from driving_wm.planning.cost import MPCCost
@@ -244,12 +244,17 @@ class LearnedModelMPC(BaseController):
         chosen_action = best_seq[0].copy()
 
         if is_fallback:
-            # Active safety fallback: steer toward lane centerline and apply braking
+            # Active safety fallback: steer toward lane centerline and heading, and apply braking
             long_p, lat_p = target_lane.local_coordinates(agent.position)
-            center_steer = float(np.clip(lat_p * 0.5, -0.6, 0.6))
+            lane_heading = float(
+                target_lane.heading_theta_at(max(0.0, min(target_lane.length, long_p)))
+            )
+            heading_err = float(wrap_angle(lane_heading - curr_heading))
+            center_steer = float(np.clip(heading_err + lat_p * 0.5, -0.6, 0.6))
             chosen_action = np.array([center_steer, -0.5], dtype=np.float32)
-
-        self.prev_solution = best_seq
+            self.prev_solution = None
+        else:
+            self.prev_solution = best_seq
         self.prev_action = chosen_action
         self.total_steps += 1
 

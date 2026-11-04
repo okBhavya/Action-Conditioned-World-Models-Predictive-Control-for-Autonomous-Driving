@@ -57,10 +57,12 @@ class StanleyPIDController(BaseController):
 
         self.speed_error_integral = 0.0
         self.prev_speed_error = 0.0
+        self.prev_heading: float | None = None
 
     def reset(self) -> None:
         self.speed_error_integral = 0.0
         self.prev_speed_error = 0.0
+        self.prev_heading = None
 
     def compute_action(self, env: Any, info: dict[str, Any] | None = None) -> np.ndarray:
         agent = env.agent
@@ -90,10 +92,13 @@ class StanleyPIDController(BaseController):
         cross_track_term = math.atan2(self.kp_steer * lat_offset, max(v_speed, 1.0))
         steer_cmd = heading_error + cross_track_term
 
-        # Damping using yaw rate if available
-        yaw_rate = float(
-            agent.velocity[0] * math.sin(heading) - agent.velocity[1] * math.cos(heading)
-        )
+        # Damping using yaw rate
+        if self.prev_heading is not None:
+            dyaw = wrap_angle(heading - self.prev_heading)
+            yaw_rate = dyaw / 0.1  # control timestep dt = 0.1s
+        else:
+            yaw_rate = 0.0
+        self.prev_heading = heading
         steer_cmd -= self.kd_steer * yaw_rate
         steer = float(np.clip(steer_cmd, -1.0, 1.0))
 

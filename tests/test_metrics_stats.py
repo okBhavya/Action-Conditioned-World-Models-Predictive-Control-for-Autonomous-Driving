@@ -62,6 +62,29 @@ def test_mcnemar_test() -> None:
     assert res["statistic"] == 0.0
     assert res["p_value"] == 1.0
 
+    # Discordant outcomes but equal counts (n01=1, n10=1) -> continuity correction stat=0, p=1.0
+    out_a_eq = [True, False, True, True]
+    out_b_eq = [False, True, True, True]
+    res_eq = mcnemar_test(out_a_eq, out_b_eq)
+    assert res_eq["statistic"] == 0.0
+    assert res_eq["p_value"] == 1.0
+    assert res_eq["n_a_better"] == 1
+    assert res_eq["n_b_better"] == 1
+
+    # Discordant difference of 1 (n10=2, n01=1) -> diff <= 1 -> stat=0, p=1.0
+    out_a_diff1 = [True, True, False, True]
+    out_b_diff1 = [False, False, True, True]
+    res_diff1 = mcnemar_test(out_a_diff1, out_b_diff1)
+    assert res_diff1["statistic"] == 0.0
+    assert res_diff1["p_value"] == 1.0
+
+    # Strong asymmetric discordant (n10=9, n01=0) -> stat = (8^2)/9 = 7.111
+    out_a_asym = [True] * 9 + [False]
+    out_b_asym = [False] * 9 + [False]
+    res_asym = mcnemar_test(out_a_asym, out_b_asym)
+    assert abs(res_asym["statistic"] - (64.0 / 9.0)) < 1e-4
+    assert res_asym["p_value"] < 0.01
+
 
 def test_compute_steering_jerk() -> None:
     # Constant steering -> jerk is 0.0

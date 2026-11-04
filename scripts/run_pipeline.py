@@ -261,8 +261,8 @@ def main() -> None:
     )
     ab_a_data = load_yaml(ab_a_summary)
     plot_ablation_safety(
-        ab_a_data["MPC + Safety Constraints"]["test_unseen_seeds"],
-        ab_a_data["MPC (Unconstrained)"]["test_unseen_seeds"],
+        ab_a_data["MPC + Safety Constraints"]["test_traffic"],
+        ab_a_data["MPC (Unconstrained)"]["test_traffic"],
         results_dir / "ablation_a_safety.png",
     )
     stage_timings["ablation_a_seconds"] = time.time() - s5_t

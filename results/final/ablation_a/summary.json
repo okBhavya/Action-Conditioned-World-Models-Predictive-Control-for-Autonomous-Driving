@@ -37,7 +37,7 @@
         "ci_lower": 319.01534069630515,
         "ci_upper": 372.82512384362707
       },
-      "mean_planning_time_ms": 72.85363219133656,
+      "mean_planning_time_ms": 126.8559497807594,
       "termination_reasons": {
         "arrive_dest": 2,
         "out_of_road": 2,
@@ -62,26 +62,26 @@
         "ci_upper": 0.9637757865216627
       },
       "route_completion": {
-        "mean": 0.4317159174614562,
-        "ci_lower": 0.20586319200160955,
-        "ci_upper": 0.7017653616385995
+        "mean": 0.43461430775925197,
+        "ci_lower": 0.17947400197615462,
+        "ci_upper": 0.7415598720453102
       },
       "mean_speed_mps": {
-        "mean": 7.7000522000581695,
-        "ci_lower": 7.234125733542683,
-        "ci_upper": 8.16317670169865
+        "mean": 7.742374416365209,
+        "ci_lower": 7.029381910285002,
+        "ci_upper": 8.455366922445416
       },
       "rms_lateral_error_m": {
-        "mean": 0.324517160252385,
-        "ci_lower": 0.20493963369420634,
-        "ci_upper": 0.4578596025877209
+        "mean": 0.27902352271347003,
+        "ci_lower": 0.1991164751791104,
+        "ci_upper": 0.3895561708386005
       },
       "steering_jerk": {
-        "mean": 353.6564645795948,
-        "ci_lower": 281.87096483684917,
-        "ci_upper": 472.9957246825437
+        "mean": 413.82922405023146,
+        "ci_lower": 332.7256134863852,
+        "ci_upper": 490.12202059781043
       },
-      "mean_planning_time_ms": 64.01498283403635,
+      "mean_planning_time_ms": 149.40747717897295,
       "termination_reasons": {
         "out_of_road": 4,
         "arrive_dest": 1
@@ -90,45 +90,45 @@
     "test_traffic": {
       "num_episodes": 5,
       "success_rate": {
+        "mean": 0.0,
+        "ci_lower": 0.0,
+        "ci_upper": 0.43448146575265334
+      },
+      "collision_rate": {
         "mean": 0.2,
         "ci_lower": 0.036224213478337486,
         "ci_upper": 0.6244646659732546
       },
-      "collision_rate": {
-        "mean": 0.4,
-        "ci_lower": 0.11762105558763347,
-        "ci_upper": 0.7692752375628972
-      },
       "out_of_road_rate": {
-        "mean": 0.4,
-        "ci_lower": 0.11762105558763347,
-        "ci_upper": 0.7692752375628972
+        "mean": 0.2,
+        "ci_lower": 0.036224213478337486,
+        "ci_upper": 0.6244646659732546
       },
       "route_completion": {
-        "mean": 0.6373951009705853,
-        "ci_lower": 0.4330700086701361,
-        "ci_upper": 0.8417201932710343
+        "mean": 0.6315290559852766,
+        "ci_lower": 0.4233443587778861,
+        "ci_upper": 0.8017750349583265
       },
       "mean_speed_mps": {
-        "mean": 8.446309134170852,
-        "ci_lower": 8.295220175177144,
-        "ci_upper": 8.585008294938563
+        "mean": 8.230171910198623,
+        "ci_lower": 7.698419661327717,
+        "ci_upper": 8.761924159069526
       },
       "rms_lateral_error_m": {
-        "mean": 0.3355503940161005,
-        "ci_lower": 0.2501241287536808,
-        "ci_upper": 0.43616322087420134
+        "mean": 0.30275500136547817,
+        "ci_lower": 0.2007347117433265,
+        "ci_upper": 0.4054497388959274
       },
       "steering_jerk": {
-        "mean": 373.11167280064933,
-        "ci_lower": 302.4787689299311,
-        "ci_upper": 445.80009888110015
+        "mean": 352.3795683607981,
+        "ci_lower": 318.2861320121059,
+        "ci_upper": 395.3940518900332
       },
-      "mean_planning_time_ms": 58.00436808113934,
+      "mean_planning_time_ms": 22183.011430933344,
       "termination_reasons": {
-        "crash": 2,
-        "out_of_road": 2,
-        "arrive_dest": 1
+        "max_step": 3,
+        "out_of_road": 1,
+        "crash": 1
       }
     }
   },
@@ -170,7 +170,7 @@
         "ci_lower": 317.7921767709377,
         "ci_upper": 390.04700635196764
       },
-      "mean_planning_time_ms": 41.32929099001963,
+      "mean_planning_time_ms": 27.07209733773047,
       "termination_reasons": {
         "arrive_dest": 2,
         "out_of_road": 1,
@@ -214,7 +214,7 @@
         "ci_lower": 296.10385164250397,
         "ci_upper": 373.6563549921448
       },
-      "mean_planning_time_ms": 49.728230647802576,
+      "mean_planning_time_ms": 31.051024117043784,
       "termination_reasons": {
         "max_step": 1,
         "out_of_road": 3,
@@ -258,7 +258,7 @@
         "ci_lower": 281.05249619115403,
         "ci_upper": 339.15871205105975
       },
-      "mean_planning_time_ms": 37.115720552703685,
+      "mean_planning_time_ms": 19.35501266035993,
       "termination_reasons": {
         "max_step": 2,
         "out_of_road": 2,

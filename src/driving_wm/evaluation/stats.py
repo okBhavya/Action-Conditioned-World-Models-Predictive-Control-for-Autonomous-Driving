@@ -109,12 +109,13 @@ def mcnemar_test(outcomes_a: list[bool], outcomes_b: list[bool]) -> dict[str, An
             n10 += 1
 
     total_discordant = n01 + n10
-    if total_discordant == 0:
+    diff = abs(n01 - n10)
+    if diff <= 1 or total_discordant == 0:
         stat = 0.0
         p_val = 1.0
     else:
         # Continuity-corrected chi-square
-        stat = ((abs(n01 - n10) - 1.0) ** 2) / total_discordant
+        stat = ((diff - 1.0) ** 2) / total_discordant
         # 1-df chi-square survival function approx
         p_val = math.erfc(math.sqrt(stat) / math.sqrt(2.0))
 

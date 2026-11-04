@@ -15,15 +15,9 @@ from typing import Any
 
 
 def get_git_info() -> dict[str, str]:
-    """Retrieve git user name, email, and commit hash."""
+    """Retrieve git commit hash."""
     info = {}
     try:
-        info["user_name"] = subprocess.check_output(
-            ["git", "config", "user.name"], text=True
-        ).strip()
-        info["user_email"] = subprocess.check_output(
-            ["git", "config", "user.email"], text=True
-        ).strip()
         info["commit"] = subprocess.check_output(
             ["git", "rev-parse", "--short", "HEAD"], text=True
         ).strip()
@@ -75,8 +69,6 @@ def print_environment_info() -> None:
 
     git_info = get_git_info()
     print("\nGit Config:")
-    print(f"  - user.name: {git_info.get('user_name', 'N/A')}")
-    print(f"  - user.email: {git_info.get('user_email', 'N/A')}")
     print(f"  - commit: {git_info.get('commit', 'N/A')}")
     print("=" * 70)
 

@@ -1,31 +1,31 @@
 controller,suite,map,seed,steps,success,arrive_dest,crash,out_of_road,route_completion,mean_speed_mps,rms_lateral_error_m,steering_jerk,min_obstacle_clearance_m,mean_planning_time_ms,termination_reason
-MPC + Safety Constraints,test_unseen_seeds,S,3000,102,True,True,False,False,0.9502,8.154,0.143,309.2880,-1.000,51.25,arrive_dest
-MPC + Safety Constraints,test_unseen_seeds,C,3001,111,False,False,False,True,0.7289,8.325,0.308,317.4939,-1.000,85.14,out_of_road
-MPC + Safety Constraints,test_unseen_seeds,SC,3002,200,False,False,False,False,0.5573,7.429,0.375,395.8703,-1.000,63.99,max_step
-MPC + Safety Constraints,test_unseen_seeds,CS,3003,172,False,False,False,True,0.6521,8.798,0.329,359.0207,-1.000,82.77,out_of_road
-MPC + Safety Constraints,test_unseen_seeds,X,3004,153,True,True,False,False,0.9589,7.706,0.480,341.5130,-1.000,81.12,arrive_dest
-MPC + Safety Constraints,test_unseen_layouts,O,4000,53,False,False,False,True,0.1742,6.910,0.193,269.0904,-1.000,64.31,out_of_road
-MPC + Safety Constraints,test_unseen_layouts,O,4004,90,False,False,False,True,0.4112,7.837,0.440,581.1559,-1.000,67.35,out_of_road
-MPC + Safety Constraints,test_unseen_layouts,T,4001,145,True,True,False,False,0.9674,7.828,0.241,334.1864,-1.000,32.22,arrive_dest
-MPC + Safety Constraints,test_unseen_layouts,CO,4002,74,False,False,False,True,0.1348,7.395,0.199,287.3244,-1.000,75.77,out_of_road
-MPC + Safety Constraints,test_unseen_layouts,TO,4003,165,False,False,False,True,0.4710,8.531,0.550,296.5252,-1.000,80.41,out_of_road
-MPC + Safety Constraints,test_traffic,SC,5000,181,False,False,True,False,0.8363,8.554,0.351,270.5336,3.023,51.07,crash
-MPC + Safety Constraints,test_traffic,SC,5003,158,False,False,True,False,0.6034,8.650,0.327,470.1966,4.496,57.16,crash
-MPC + Safety Constraints,test_traffic,CS,5001,118,False,False,False,True,0.3872,8.322,0.515,469.1054,5.418,77.22,out_of_road
-MPC + Safety Constraints,test_traffic,CS,5004,101,False,False,False,True,0.3938,8.189,0.286,305.3262,10.743,67.36,out_of_road
-MPC + Safety Constraints,test_traffic,X,5002,133,True,True,False,False,0.9663,8.517,0.199,350.3965,3.867,37.22,arrive_dest
-MPC (Unconstrained),test_unseen_seeds,S,3000,102,True,True,False,False,0.9502,8.154,0.143,309.2880,-1.000,26.17,arrive_dest
-MPC (Unconstrained),test_unseen_seeds,C,3001,111,False,False,False,True,0.7289,8.325,0.308,317.4939,-1.000,48.27,out_of_road
-MPC (Unconstrained),test_unseen_seeds,SC,3002,200,False,False,False,False,0.6106,8.164,0.299,370.9373,-1.000,39.60,max_step
-MPC (Unconstrained),test_unseen_seeds,CS,3003,200,False,False,False,False,0.7729,8.928,0.303,420.6013,-1.000,44.06,max_step
-MPC (Unconstrained),test_unseen_seeds,X,3004,139,True,True,False,False,0.9543,8.477,0.411,335.3971,-1.000,48.55,arrive_dest
-MPC (Unconstrained),test_unseen_layouts,O,4000,200,False,False,False,False,0.7362,8.967,0.619,324.7809,-1.000,61.94,max_step
-MPC (Unconstrained),test_unseen_layouts,O,4004,195,False,False,False,True,0.8053,8.186,0.488,381.5764,-1.000,55.38,out_of_road
-MPC (Unconstrained),test_unseen_layouts,T,4001,133,True,True,False,False,0.9613,8.476,0.230,390.1741,-1.000,29.14,arrive_dest
-MPC (Unconstrained),test_unseen_layouts,CO,4002,134,False,False,False,True,0.2685,8.030,0.349,310.8488,-1.000,56.62,out_of_road
-MPC (Unconstrained),test_unseen_layouts,TO,4003,172,False,False,False,True,0.4756,8.453,0.474,267.0204,-1.000,45.56,out_of_road
-MPC (Unconstrained),test_traffic,SC,5000,200,False,False,False,False,0.9491,8.764,0.284,326.4134,3.612,33.01,max_step
-MPC (Unconstrained),test_traffic,SC,5003,200,False,False,False,False,0.7357,8.551,0.589,341.9694,4.166,41.32,max_step
-MPC (Unconstrained),test_traffic,CS,5001,85,False,False,False,True,0.2650,7.741,0.278,342.7207,7.414,43.11,out_of_road
-MPC (Unconstrained),test_traffic,CS,5004,114,False,False,False,True,0.4370,8.112,0.343,253.3508,10.445,40.99,out_of_road
-MPC (Unconstrained),test_traffic,X,5002,77,False,False,True,False,0.5387,7.911,0.280,303.2405,4.267,27.16,crash
+MPC + Safety Constraints,test_unseen_seeds,S,3000,102,True,True,False,False,0.9502,8.154,0.143,309.2880,-1.000,60.48,arrive_dest
+MPC + Safety Constraints,test_unseen_seeds,C,3001,111,False,False,False,True,0.7289,8.325,0.308,317.4939,-1.000,155.20,out_of_road
+MPC + Safety Constraints,test_unseen_seeds,SC,3002,200,False,False,False,False,0.5573,7.429,0.375,395.8703,-1.000,114.04,max_step
+MPC + Safety Constraints,test_unseen_seeds,CS,3003,172,False,False,False,True,0.6521,8.798,0.329,359.0207,-1.000,149.93,out_of_road
+MPC + Safety Constraints,test_unseen_seeds,X,3004,153,True,True,False,False,0.9589,7.706,0.480,341.5130,-1.000,154.63,arrive_dest
+MPC + Safety Constraints,test_unseen_layouts,O,4000,53,False,False,False,True,0.1742,6.910,0.193,269.0904,-1.000,124.73,out_of_road
+MPC + Safety Constraints,test_unseen_layouts,O,4004,142,False,False,False,True,0.6340,8.667,0.485,559.3795,-1.000,169.51,out_of_road
+MPC + Safety Constraints,test_unseen_layouts,T,4001,133,True,True,False,False,0.9665,8.521,0.224,385.5178,-1.000,58.14,arrive_dest
+MPC + Safety Constraints,test_unseen_layouts,CO,4002,126,False,False,False,True,0.2477,7.901,0.301,470.8697,-1.000,234.49,out_of_road
+MPC + Safety Constraints,test_unseen_layouts,TO,4003,60,False,False,False,True,0.1506,6.713,0.193,384.2886,-1.000,160.17,out_of_road
+MPC + Safety Constraints,test_traffic,SC,5000,200,False,False,False,False,0.9006,8.356,0.439,371.4058,3.802,105.77,max_step
+MPC + Safety Constraints,test_traffic,SC,5003,200,False,False,False,False,0.7591,8.777,0.399,326.8006,5.487,44637.62,max_step
+MPC + Safety Constraints,test_traffic,CS,5001,200,False,False,False,False,0.6895,8.950,0.351,320.8348,6.222,66107.36,max_step
+MPC + Safety Constraints,test_traffic,CS,5004,75,False,False,False,True,0.2746,7.521,0.184,311.4803,18.640,32.66,out_of_road
+MPC + Safety Constraints,test_traffic,X,5002,80,False,False,True,False,0.5339,7.548,0.141,431.3764,3.705,31.64,crash
+MPC (Unconstrained),test_unseen_seeds,S,3000,102,True,True,False,False,0.9502,8.154,0.143,309.2880,-1.000,17.41,arrive_dest
+MPC (Unconstrained),test_unseen_seeds,C,3001,111,False,False,False,True,0.7289,8.325,0.308,317.4939,-1.000,30.57,out_of_road
+MPC (Unconstrained),test_unseen_seeds,SC,3002,200,False,False,False,False,0.6106,8.164,0.299,370.9373,-1.000,26.12,max_step
+MPC (Unconstrained),test_unseen_seeds,CS,3003,200,False,False,False,False,0.7729,8.928,0.303,420.6013,-1.000,29.22,max_step
+MPC (Unconstrained),test_unseen_seeds,X,3004,139,True,True,False,False,0.9543,8.477,0.411,335.3971,-1.000,32.04,arrive_dest
+MPC (Unconstrained),test_unseen_layouts,O,4000,200,False,False,False,False,0.7362,8.967,0.619,324.7809,-1.000,43.60,max_step
+MPC (Unconstrained),test_unseen_layouts,O,4004,195,False,False,False,True,0.8053,8.186,0.488,381.5764,-1.000,35.73,out_of_road
+MPC (Unconstrained),test_unseen_layouts,T,4001,133,True,True,False,False,0.9613,8.476,0.230,390.1741,-1.000,14.97,arrive_dest
+MPC (Unconstrained),test_unseen_layouts,CO,4002,134,False,False,False,True,0.2685,8.030,0.349,310.8488,-1.000,33.15,out_of_road
+MPC (Unconstrained),test_unseen_layouts,TO,4003,172,False,False,False,True,0.4756,8.453,0.474,267.0204,-1.000,27.80,out_of_road
+MPC (Unconstrained),test_traffic,SC,5000,200,False,False,False,False,0.9491,8.764,0.284,326.4134,3.612,16.10,max_step
+MPC (Unconstrained),test_traffic,SC,5003,200,False,False,False,False,0.7357,8.551,0.589,341.9694,4.166,22.12,max_step
+MPC (Unconstrained),test_traffic,CS,5001,85,False,False,False,True,0.2650,7.741,0.278,342.7207,7.414,19.75,out_of_road
+MPC (Unconstrained),test_traffic,CS,5004,114,False,False,False,True,0.4370,8.112,0.343,253.3508,10.445,25.95,out_of_road
+MPC (Unconstrained),test_traffic,X,5002,77,False,False,True,False,0.5387,7.911,0.280,303.2405,4.267,12.85,crash

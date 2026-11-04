@@ -104,7 +104,7 @@ def run_single_episode(
 
     # Planning time if controller has telemetry
     plan_time = 0.0
-    if hasattr(controller, "planning_times_ms") and controller.planning_times_ms:
+    if hasattr(controller, "planning_times_ms") and controller.planning_times_ms and step_count > 0:
         plan_time = float(np.mean(controller.planning_times_ms[-step_count:]))
 
     res = EpisodeResult(
